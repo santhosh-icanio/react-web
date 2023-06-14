@@ -1,12 +1,12 @@
 pipeline {
     agent any
     
-    stages {
-       stage("build") {
-            steps {
-                sh "docker build -t react-jenkins:latest . "
-            }
-        }   
+//     stages {
+//        stage("build") {
+//             steps {
+//                 sh "docker build -t react-jenkins:latest . "
+//             }
+//         }   
 //         stage('Install Dependencies') {
 //             steps {
 //                 sh 'npm install'
@@ -23,15 +23,17 @@ pipeline {
 //         }
         stage("Run") {
             steps {
+                sh "pm2 stop react"
+                sh " pm2 start --name react  npm -- start"
                 // Run the React development server in a Docker container
-                sh "docker ps -a"
-                sh 'fuser -k 3000/tcp'             
+//                 sh "docker ps -a"
+//                 sh 'fuser -k 3000/tcp'             
 //                 script {
 //                     def portNumber = 3000
 //                     def processId = sh(returnStdout: true, script: "lsof -t -i:3000").trim()
 //                     sh "kill ${processId}"
 //                 }
-          sh "docker run -d -p 3000:3000 react-jenkins:latest"
+//           sh "docker run -d -p 3000:3000 react-jenkins:latest"
             }
         }
 // stage('Cleanup') {
