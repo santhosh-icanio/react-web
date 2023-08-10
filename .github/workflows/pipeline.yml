@@ -3,7 +3,7 @@ name: Run React App with PM2
 on:
   push:
     branches:
-      - hithub-action
+      - github-action
 
 jobs:
   build:
