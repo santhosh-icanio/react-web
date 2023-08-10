@@ -1,29 +1,38 @@
-name: Build and Deploy
+name: Run React App with PM2
 
 on:
   push:
     branches:
-      - main
+      - main # Change this to your main branch name
 
 jobs:
   build:
-    name: Build and Deploy
-    runs-on: ubuntu-latest
+    runs-on: self-hosted # Use the appropriate label for your self-hosted runner
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
+        run: |
+          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+          sudo apt-get install -y nodejs
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build React app
+      - name: Build React App
         run: npm run build
-        
-      - name: run React app
-        run: npm start    
+
+      - name: Install PM2
+        run: npm install pm2 -g
+
+      - name: Delete Existing PM2 Process
+        run: pm2 delete my-react-app || true
+
+      - name: Start React App with PM2
+        run: pm2 start "npm start" --name "my-react-app" --cwd "/home/icanio-10094/git/project/Linux"
+
+      - name: List PM2 Processes After Start
+        run: pm2 ps
+
