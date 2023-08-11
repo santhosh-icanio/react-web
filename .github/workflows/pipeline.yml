@@ -13,19 +13,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
+#       - name: Set up Node.js
+#         run: |
+#           curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+#           sudo apt-get install -y nodejs
 
-      - name: Install Dependencies
-        run: npm install
+#       - name: Install Dependencies
+#         run: npm install
 
-      - name: Build React App
-        run: npm run build
+#       - name: Build React App
+#         run: npm run build
 
-      - name: Install PM2
-        run: npm install pm2 -g
+#       - name: Install PM2
+#         run: npm install pm2 -g
 
       - name: Delete Existing PM2 Process
         run: pm2 delete my-react-app || true
