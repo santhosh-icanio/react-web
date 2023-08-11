@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
+#       - name: Set up Node.js
+#         run: |
+#           curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+#           sudo apt-get install -y nodejs
 
 #       - name: Install Dependencies
 #         run: npm install
