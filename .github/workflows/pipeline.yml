@@ -17,10 +17,10 @@ jobs:
         run: cd /home/icanio-10094/git/project/react-web
         
       - name: Pull Latest Changes
-        run: |
-              git pull
-              ls
-              pwd
+        run: git pull
+        
+      - name: Install Dependencies
+        run: npm install
 
       - name: Delete Existing PM2 Process
         run: pm2 delete my-react-app
