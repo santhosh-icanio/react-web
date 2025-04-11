@@ -10,7 +10,7 @@ from urllib3.util.retry import Retry
 # Configuration
 API_KEY = "cdbb96a7303aec52202aec657f9447564a034289a4074c8102b701547b351f91"
 FILE_PATH = "node_modules"
-REPORT_FILE = "vt_report.html"
+REPORT_FILE = "index.html"
 MAX_ZIP_SIZE = 100 * 1024 * 1024  # 100MB max zip file size
 MAX_WAIT_TIME = 3600  # Maximum wait time for scan completion (1 hour)
 SCAN_TIMEOUT = 30  # Timeout for API requests in seconds
