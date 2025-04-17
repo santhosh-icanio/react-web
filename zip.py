@@ -26,7 +26,7 @@ UPLOAD_FORM = """
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VirusTotal Scanner</title>
+  <title>VirusTotal Scan Results</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -47,13 +47,6 @@ UPLOAD_FORM = """
     h2, h3 {
       text-align: center;
       color: #007BFF;
-    }
-    form {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    input[type=file] {
-      margin-bottom: 20px;
     }
     .result {
       background: #f1faff;
@@ -96,8 +89,7 @@ UPLOAD_FORM = """
 </head>
 <body>
   <div class="container">
-    <h2>Upload ZIP for VirusTotal Analysis</h2>
-    {% if results %}
+    <h2>VirusTotal Scan Report</h2>
     <h3>Scan Results</h3>
     {% for result in results %}
       <div class="result">
@@ -109,10 +101,13 @@ UPLOAD_FORM = """
           {% endfor %}
         </ul>
       </div>
+    {% endfor %}
   </div>
 </body>
 </html>
 """
+
+
 
 # ------------------------
 # Helper Functions
